@@ -30,13 +30,6 @@ const GEMINI_VOICES = [
   { name: 'Schedar', style: 'Even' },
   { name: 'Gacrux', style: 'Mature' },
   { name: 'Pulcherrima', style: 'Forward' },
-  { name: 'Professioneel ABN', prompt: 'Spreek dit uit in perfect Algemeen Beschaafd Nederlands, zonder dialect of regionale accenten, op een professionele manier: ' },
-  { name: 'Achird', style: 'Friendly' },
-  { name: 'Zubenelgenubi', style: 'Casual' },
-  { name: 'Vindemiatrix', style: 'Gentle' },
-  { name: 'Sadachbia', style: 'Lively' },
-  { name: 'Sadaltager', style: 'Knowledgeable' },
-  { name: 'Sulafat', style: 'Warm' }
 ]
 
 // Helper function to validate voice name
