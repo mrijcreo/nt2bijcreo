@@ -324,7 +324,8 @@ export async function GET() {
       'dramatic',
       'friendly',
       'formal',
-      'casual'
+      'casual',
+      'vlaams'
     ],
     maxTextLength: 32000,
     supportedLanguages: [
@@ -334,4 +335,4 @@ export async function GET() {
       'pl-PL', 'ro-RO', 'bn-BD', 'mr-IN', 'ta-IN', 'te-IN'
     ]
   })
-} 
+}
