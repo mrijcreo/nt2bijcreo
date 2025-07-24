@@ -45,16 +45,16 @@ const ERK_LEVELS = [
 
 // Gemini Voices
 const GEMINI_VOICES = [
-  { name: 'Charon', style: 'Informative', description: 'Informatief en duidelijk ABN' },
-  { name: 'Kore', style: 'Firm', description: 'Stevig en professioneel ABN' },
-  { name: 'Schedar', style: 'Even', description: 'Gelijkmatig ABN, ideaal voor onderwijs' },
-  { name: 'Rasalgethi', style: 'Informative', description: 'Leerzaam en goed gestructureerd ABN' },
-  { name: 'Iapetus', style: 'Clear', description: 'Kristalhelder ABN' },
-  { name: 'Erinome', style: 'Clear', description: 'Helder en scherp ABN' },
-  { name: 'Gacrux', style: 'Mature', description: 'Volwassen en ervaren ABN' },
-  { name: 'Sadaltager', style: 'Knowledgeable', description: 'Knap en geleerd ABN' },
-  { name: 'Achird', style: 'Friendly', description: 'Vriendelijk maar correct ABN' },
-  { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig maar duidelijk ABN' }
+  { name: 'Charon', style: 'Informative', description: 'Informatief Vlaams Nederlands' },
+  { name: 'Kore', style: 'Firm', description: 'Stevig Vlaams Nederlands' },
+  { name: 'Schedar', style: 'Even', description: 'Gelijkmatig Vlaams, ideaal voor onderwijs' },
+  { name: 'Rasalgethi', style: 'Informative', description: 'Leerzaam Vlaams Nederlands' },
+  { name: 'Iapetus', style: 'Clear', description: 'Kristalhelder Vlaams' },
+  { name: 'Erinome', style: 'Clear', description: 'Helder Vlaams Nederlands' },
+  { name: 'Gacrux', style: 'Mature', description: 'Volwassen Vlaams Nederlands' },
+  { name: 'Sadaltager', style: 'Knowledgeable', description: 'Geleerd Vlaams Nederlands' },
+  { name: 'Achird', style: 'Friendly', description: 'Vriendelijk Vlaams Nederlands' },
+  { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig Vlaams Nederlands' }
 ]
 
 type AppStep = 'input' | 'audio' | 'quiz'
@@ -122,18 +122,18 @@ export default function ListeningExerciseApp() {
     setIsGeneratingAudio(true)
     
     try {
-      // Voeg ABN instructie toe aan de tekst
-      const abnInstruction = "Spreek dit uit in Algemeen Beschaafd Nederlands (ABN), zonder dialect of regionale accenten: "
-      const textWithABN = abnInstruction + inputText
+      // Voeg Vlaams Nederlands instructie toe aan de tekst
+      const belgianDutchInstruction = "Spreek dit uit in Algemeen Nederlands zoals gesproken in België (Vlaanderen), zonder dialecten maar met Vlaamse uitspraak en intonatie: "
+      const textWithBelgianDutch = belgianDutchInstruction + inputText
       
       const response = await fetch('/api/generate-tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          text: textWithABN,
+          text: textWithBelgianDutch,
           voiceName: selectedVoice.name,
           multiSpeaker: false,
-          style: "Professioneel" // Gebruik professionele stijl voor ABN
+          style: "Vlaams" // Gebruik Vlaamse stijl
         }),
       })
 
@@ -344,7 +344,7 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-medium mb-2">TTS Stem</label>
               <p className="text-xs text-blue-600 mb-2">
-                ℹ️ Alle stemmen zijn geoptimaliseerd voor Algemeen Beschaafd Nederlands (ABN)
+                🇧🇪 Alle stemmen zijn geoptimaliseerd voor Vlaams Nederlands (België)
               </p>
               <select
                 value={selectedVoice.name}
@@ -361,7 +361,7 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                 ))}
               </select>
               <p className="text-xs text-gray-500 mt-1">
-                Standaard wordt "Professioneel ABN" stijl gebruikt voor correcte uitspraak
+                Standaard wordt Vlaamse uitspraak gebruikt zonder dialecten
               </p>
             </div>
           </div>
@@ -508,7 +508,7 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                   Stem: {selectedVoice.name} - {selectedVoice.description}
                 </p>
                 <p className="text-blue-600 text-sm mt-1">
-                  🇳🇱 Algemeen Beschaafd Nederlands (ABN)
+                  🇧🇪 Vlaams Nederlands (België)
                 </p>
               </div>
 

@@ -58,7 +58,8 @@ function applyStylePrompt(text: string, style?: string): string {
     'dramatic': 'Say dramatically with emphasis:',
     'friendly': 'Say in a warm, friendly manner:',
     'formal': 'Say in a formal, business-like tone:',
-    'casual': 'Say in a relaxed, casual way:'
+    'casual': 'Say in a relaxed, casual way:',
+    'vlaams': 'Spreek dit uit in Algemeen Nederlands zoals gesproken in België (Vlaanderen), met Vlaamse uitspraak en intonatie maar zonder dialecten:'
   }
   
   const prompt = stylePrompts[style as keyof typeof stylePrompts]
