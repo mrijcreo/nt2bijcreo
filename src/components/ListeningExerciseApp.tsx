@@ -369,26 +369,44 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
       {/* Progress Indicator */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
-          <div className={`flex items-center ${currentStep === 'input' ? 'text-blue-600' : currentStep === 'audio' || currentStep === 'quiz' ? 'text-green-600' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'input' ? 'bg-blue-600 text-white' : currentStep === 'audio' || currentStep === 'quiz' ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-600'}`}>
+          <div className={`flex items-center ${currentStep === 'input' ? '' : currentStep === 'audio' || currentStep === 'quiz' ? '' : 'text-gray-400'}`} style={{
+            color: currentStep === 'input' ? '#233975' : currentStep === 'audio' || currentStep === 'quiz' ? '#eec434' : '#9ca3af'
+          }}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white ${currentStep === 'input' ? '' : currentStep === 'audio' || currentStep === 'quiz' ? '' : 'bg-gray-300 text-gray-600'}`} style={{
+              backgroundColor: currentStep === 'input' ? '#233975' : currentStep === 'audio' || currentStep === 'quiz' ? '#eec434' : '#d1d5db',
+              color: currentStep === 'audio' || currentStep === 'quiz' ? '#233975' : 'white'
+            }}>
               1
             </div>
             <span className="ml-2 font-medium">Tekst Invoer</span>
           </div>
           
-          <div className={`flex-1 h-1 mx-4 ${currentStep === 'audio' || currentStep === 'quiz' ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+          <div className={`flex-1 h-1 mx-4 ${currentStep === 'audio' || currentStep === 'quiz' ? '' : 'bg-gray-300'}`} style={{
+            backgroundColor: currentStep === 'audio' || currentStep === 'quiz' ? '#eec434' : '#d1d5db'
+          }}></div>
           
-          <div className={`flex items-center ${currentStep === 'audio' ? 'text-blue-600' : currentStep === 'quiz' ? 'text-green-600' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'audio' ? 'bg-blue-600 text-white' : currentStep === 'quiz' ? 'bg-green-600 text-white' : 'bg-gray-300 text-gray-600'}`}>
+          <div className={`flex items-center ${currentStep === 'audio' ? '' : currentStep === 'quiz' ? '' : 'text-gray-400'}`} style={{
+            color: currentStep === 'audio' ? '#233975' : currentStep === 'quiz' ? '#eec434' : '#9ca3af'
+          }}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white ${currentStep === 'audio' ? '' : currentStep === 'quiz' ? '' : 'bg-gray-300 text-gray-600'}`} style={{
+              backgroundColor: currentStep === 'audio' ? '#233975' : currentStep === 'quiz' ? '#eec434' : '#d1d5db',
+              color: currentStep === 'quiz' ? '#233975' : 'white'
+            }}>
               2
             </div>
             <span className="ml-2 font-medium">Audio Genereren</span>
           </div>
           
-          <div className={`flex-1 h-1 mx-4 ${currentStep === 'quiz' ? 'bg-green-600' : 'bg-gray-300'}`}></div>
+          <div className={`flex-1 h-1 mx-4 ${currentStep === 'quiz' ? '' : 'bg-gray-300'}`} style={{
+            backgroundColor: currentStep === 'quiz' ? '#eec434' : '#d1d5db'
+          }}></div>
           
-          <div className={`flex items-center ${currentStep === 'quiz' ? 'text-blue-600' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'quiz' ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-600'}`}>
+          <div className={`flex items-center ${currentStep === 'quiz' ? '' : 'text-gray-400'}`} style={{
+            color: currentStep === 'quiz' ? '#233975' : '#9ca3af'
+          }}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep === 'quiz' ? 'text-white' : 'bg-gray-300 text-gray-600'}`} style={{
+              backgroundColor: currentStep === 'quiz' ? '#233975' : '#d1d5db'
+            }}>
               3
             </div>
             <span className="ml-2 font-medium">Quiz</span>
@@ -400,14 +418,22 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
       <div className="flex justify-end mb-4">
         <button
           onClick={() => setShowSettings(true)}
-          className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors hover:shadow-md"
+          style={{ 
+            backgroundColor: '#eec434', 
+            color: '#233975',
+            border: '1px solid #233975'
+          }}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <span>Instellingen</span>
-          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+          <span className="text-xs px-2 py-1 rounded" style={{ 
+            backgroundColor: '#233975', 
+            color: '#eec434' 
+          }}>
             {selectedLevel.code}
           </span>
         </button>
@@ -464,7 +490,12 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
             <button
               onClick={generateAudio}
               disabled={!inputText.trim() || isGeneratingAudio}
-              className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2"
+              className="w-full py-3 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2 hover:shadow-lg"
+              style={{ 
+                backgroundColor: '#233975',
+                borderColor: '#eec434',
+                borderWidth: '2px'
+              }}
             >
               {isGeneratingAudio ? (
                 <>
@@ -558,7 +589,13 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
             <button
               onClick={generateQuiz}
               disabled={isGeneratingQuiz}
-              className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2"
+              className="w-full py-3 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2 hover:shadow-lg"
+              style={{ 
+                backgroundColor: '#eec434',
+                color: '#233975',
+                borderColor: '#233975',
+                borderWidth: '2px'
+              }}
             >
               {isGeneratingQuiz ? (
                 <>
@@ -578,7 +615,13 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
             {/* Back Button */}
             <button
               onClick={() => setCurrentStep('input')}
-              className="w-full mt-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+              className="w-full mt-4 py-2 rounded-lg transition-colors hover:shadow-md"
+              style={{ 
+                backgroundColor: '#f3f4f6',
+                color: '#233975',
+                borderColor: '#233975',
+                borderWidth: '1px'
+              }}
             >
               Terug naar Tekst Invoer
             </button>
@@ -603,7 +646,8 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                 <div className="mb-6">
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                      className="h-2 rounded-full transition-all duration-300"
+                      style={{ backgroundColor: '#eec434' }}
                       style={{ width: `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%` }}
                     ></div>
                   </div>
@@ -612,7 +656,7 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                 {quizQuestions[currentQuestionIndex] && (
                   <div>
                     {/* Question */}
-                    <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+                    <div className="mb-6 p-4 rounded-lg" style={{ backgroundColor: '#fefce8' }}>
                       <h3 className="text-lg font-semibold text-gray-800 mb-2">
                         {quizQuestions[currentQuestionIndex].question}
                       </h3>
@@ -626,16 +670,25 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                           onClick={() => selectAnswer(index)}
                           className={`w-full p-4 text-left rounded-lg border-2 transition-colors ${
                             selectedAnswers[currentQuestionIndex] === index
-                              ? 'border-blue-500 bg-blue-50 text-blue-800'
-                              : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                              ? ''
+                              : 'border-gray-200 hover:border-gray-300'
                           }`}
+                          style={selectedAnswers[currentQuestionIndex] === index ? {
+                            borderColor: '#233975',
+                            backgroundColor: '#fefce8',
+                            color: '#233975'
+                          } : {}}
                         >
                           <div className="flex items-center">
                             <div className={`w-6 h-6 rounded-full border-2 mr-3 flex items-center justify-center ${
                               selectedAnswers[currentQuestionIndex] === index
-                                ? 'border-blue-500 bg-blue-500'
+                                ? ''
                                 : 'border-gray-300'
                             }`}>
+                            style={selectedAnswers[currentQuestionIndex] === index ? {
+                              borderColor: '#233975',
+                              backgroundColor: '#233975'
+                            } : {}}
                               {selectedAnswers[currentQuestionIndex] === index && (
                                 <div className="w-2 h-2 bg-white rounded-full"></div>
                               )}
@@ -659,7 +712,8 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                       <button
                         onClick={nextQuestion}
                         disabled={selectedAnswers[currentQuestionIndex] === undefined}
-                        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="px-6 py-2 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors hover:shadow-md"
+                        style={{ backgroundColor: '#233975' }}
                       >
                         {currentQuestionIndex === quizQuestions.length - 1 ? 'Voltooien' : 'Volgende'}
                       </button>
@@ -675,11 +729,11 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                 {(() => {
                   const score = calculateScore()
                   return (
-                    <div className="mb-6 p-6 bg-green-50 rounded-lg text-center">
-                      <div className="text-4xl font-bold text-green-600 mb-2">
+                    <div className="mb-6 p-6 rounded-lg text-center" style={{ backgroundColor: '#fefce8' }}>
+                      <div className="text-4xl font-bold mb-2" style={{ color: '#233975' }}>
                         {score.percentage}%
                       </div>
-                      <p className="text-green-700 text-lg">
+                      <p className="text-lg" style={{ color: '#233975' }}>
                         {score.correct} van {score.total} vragen correct
                       </p>
                       <p className="text-gray-600 mt-2">
@@ -732,14 +786,16 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                 <div className="flex space-x-4">
                   <button
                     onClick={() => setCurrentStep('audio')}
-                    className="flex-1 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex-1 py-2 text-white rounded-lg transition-colors hover:shadow-md"
+                    style={{ backgroundColor: '#233975' }}
                   >
                     Terug naar Audio
                   </button>
                   
                   <button
                     onClick={resetApp}
-                    className="flex-1 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                    className="flex-1 py-2 text-white rounded-lg transition-colors hover:shadow-md"
+                    style={{ backgroundColor: '#6b7280' }}
                   >
                     Nieuwe Oefening
                   </button>
