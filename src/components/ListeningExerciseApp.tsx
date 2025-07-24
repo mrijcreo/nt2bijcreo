@@ -685,11 +685,12 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                               selectedAnswers[currentQuestionIndex] === index
                                 ? ''
                                 : 'border-gray-300'
-                            }`}>
+                            }`}
                             style={selectedAnswers[currentQuestionIndex] === index ? {
                               borderColor: '#233975',
                               backgroundColor: '#233975'
                             } : {}}
+                          >
                               {selectedAnswers[currentQuestionIndex] === index && (
                                 <div className="w-2 h-2 bg-white rounded-full"></div>
                               )}
