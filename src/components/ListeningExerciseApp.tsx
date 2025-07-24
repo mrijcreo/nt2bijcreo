@@ -45,16 +45,16 @@ const ERK_LEVELS = [
 
 // Gemini Voices
 const GEMINI_VOICES = [
-  { name: 'Kore', style: 'Firm', description: 'Stevig en zelfverzekerd' },
-  { name: 'Charon', style: 'Informative', description: 'Informatief en duidelijk' },
-  { name: 'Aoede', style: 'Breezy', description: 'Luchtig en ontspannen' },
-  { name: 'Fenrir', style: 'Excitable', description: 'Enthousiast en opwindend' },
-  { name: 'Leda', style: 'Youthful', description: 'Jeugdig en fris' },
-  { name: 'Achernar', style: 'Soft', description: 'Zacht en aangenaam' },
-  { name: 'Schedar', style: 'Even', description: 'Gelijkmatig en evenwichtig' },
-  { name: 'Achird', style: 'Friendly', description: 'Vriendelijk en toegankelijk' },
-  { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig en mild' },
-  { name: 'Sulafat', style: 'Warm', description: 'Warm en hartelijk' }
+  { name: 'Charon', style: 'Informative', description: 'Informatief en duidelijk ABN' },
+  { name: 'Kore', style: 'Firm', description: 'Stevig en professioneel ABN' },
+  { name: 'Schedar', style: 'Even', description: 'Gelijkmatig ABN, ideaal voor onderwijs' },
+  { name: 'Rasalgethi', style: 'Informative', description: 'Leerzaam en goed gestructureerd ABN' },
+  { name: 'Iapetus', style: 'Clear', description: 'Kristalhelder ABN' },
+  { name: 'Erinome', style: 'Clear', description: 'Helder en scherp ABN' },
+  { name: 'Gacrux', style: 'Mature', description: 'Volwassen en ervaren ABN' },
+  { name: 'Sadaltager', style: 'Knowledgeable', description: 'Knap en geleerd ABN' },
+  { name: 'Achird', style: 'Friendly', description: 'Vriendelijk maar correct ABN' },
+  { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig maar duidelijk ABN' }
 ]
 
 type AppStep = 'input' | 'audio' | 'quiz'
@@ -122,13 +122,18 @@ export default function ListeningExerciseApp() {
     setIsGeneratingAudio(true)
     
     try {
+      // Voeg ABN instructie toe aan de tekst
+      const abnInstruction = "Spreek dit uit in Algemeen Beschaafd Nederlands (ABN), zonder dialect of regionale accenten: "
+      const textWithABN = abnInstruction + inputText
+      
       const response = await fetch('/api/generate-tts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          text: inputText,
+          text: textWithABN,
           voiceName: selectedVoice.name,
-          multiSpeaker: false
+          multiSpeaker: false,
+          style: "Professioneel" // Gebruik professionele stijl voor ABN
         }),
       })
 
@@ -338,6 +343,9 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
             {/* Stem Selectie */}
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-medium mb-2">TTS Stem</label>
+              <p className="text-xs text-blue-600 mb-2">
+                ℹ️ Alle stemmen zijn geoptimaliseerd voor Algemeen Beschaafd Nederlands (ABN)
+              </p>
               <select
                 value={selectedVoice.name}
                 onChange={(e) => {
@@ -352,6 +360,9 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                   </option>
                 ))}
               </select>
+              <p className="text-xs text-gray-500 mt-1">
+                Standaard wordt "Professioneel ABN" stijl gebruikt voor correcte uitspraak
+              </p>
             </div>
           </div>
         </div>
@@ -494,7 +505,10 @@ Zorg dat elke vraag 4 antwoordopties heeft en dat de "correct" waarde het indexn
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M8.464 15.536a5 5 0 01-7.072 0M4.222 4.222a9 9 0 000 14.142M12 18.364l-1.414-1.414M12 5.636L10.586 7.05" />
                 </svg>
                 <p className="text-blue-700 font-medium">
-                  Stem: {selectedVoice.name} ({selectedVoice.description})
+                  Stem: {selectedVoice.name} - {selectedVoice.description}
+                </p>
+                <p className="text-blue-600 text-sm mt-1">
+                  🇳🇱 Algemeen Beschaafd Nederlands (ABN)
                 </p>
               </div>
 
