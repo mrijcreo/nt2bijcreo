@@ -57,8 +57,6 @@ const GEMINI_VOICES = [
   { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig Vlaams Nederlands' }
 ]
 
-type AppStep = 'input' | 'audio' | 'quiz'
-  { name: 'Sulafat', style: 'Warm', description: 'Warm Vlaams Nederlands' },
   { name: 'Professioneel AN', style: 'Professional', description: 'Professioneel Algemeen Nederlands' }
 interface QuizQuestion {
   question: string
