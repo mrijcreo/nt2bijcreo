@@ -7,8 +7,8 @@ export default function Home() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-6 shadow-lg">
-            <div className="text-white text-2xl font-bold">
-              NT2
+            <div className="text-white text-3xl">
+              🎧
             </div>
           </div>
           
