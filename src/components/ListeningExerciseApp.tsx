@@ -51,11 +51,7 @@ const GEMINI_VOICES = [
   { name: 'Rasalgethi', style: 'Informative', description: 'Leerzaam Vlaams Nederlands' },
   { name: 'Iapetus', style: 'Clear', description: 'Kristalhelder Vlaams' },
   { name: 'Erinome', style: 'Clear', description: 'Helder Vlaams Nederlands' },
-  { name: 'Gacrux', style: 'Mature', description: 'Volwassen Vlaams Nederlands' },
-  { name: 'Sadaltager', style: 'Knowledgeable', description: 'Geleerd Vlaams Nederlands' },
-  { name: 'Achird', style: 'Friendly', description: 'Vriendelijk Vlaams Nederlands' },
-  { name: 'Vindemiatrix', style: 'Gentle', description: 'Zachtaardig Vlaams Nederlands' },
-  { name: 'Sulafat', style: 'Warm', description: 'Warme Vlaamse stem' }
+  { name: 'Gacrux', style: 'Mature', description: 'Volwassen Vlaams Nederlands' }
 ]
 interface QuizQuestion {
   question: string
