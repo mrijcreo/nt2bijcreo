@@ -3,6 +3,9 @@
 import { useState, useRef } from 'react'
 import MarkdownRenderer from './MarkdownRenderer'
 
+// Type definition for app steps
+type AppStep = 'input' | 'audio' | 'quiz'
+
 // ERK Niveaus
 const ERK_LEVELS = [
   {
